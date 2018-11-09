@@ -13,21 +13,49 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/authService/src</directory>
+                <directory>services/AdventureWorks2014/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/salesdb/src</directory>
+                <directory>services/CountryInfoService/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
             </resource>
             <resource>
                 <filtering>true</filtering>
-                <directory>services/salesforceLeads/src</directory>
+                <directory>services/FileService/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/MyJavaService/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/googleapis/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/heartRate/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/hrdb/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -35,13 +63,6 @@
             <resource>
                 <filtering>true</filtering>
                 <directory>services/securityService/src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <filtering>true</filtering>
-                <directory>services/wsheartrate/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
@@ -67,14 +88,14 @@
                                         <versionRange>[1.7,)</versionRange>
                                         <goals>
                                             <goal>run</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
+                    </goals>
+                  </pluginExecutionFilter>
                                     <action>
                                         <ignore/>
-                                    </action>
-                                </pluginExecution>
-                            </pluginExecutions>
-                        </lifecycleMappingMetadata>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -86,17 +107,15 @@
         </pluginManagement>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>3.0.1</version>
                 <configuration>
                     <nonFilteredFileExtensions>
                         <nonFilteredFileExtension>jks</nonFilteredFileExtension>
-                    </nonFilteredFileExtensions>
+          </nonFilteredFileExtensions>
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>2.4.1</version>
                 <executions>
@@ -109,11 +128,11 @@
                     <filesets>
                         <fileset>
                             <directory>${basedir}/src/main/webapp/WEB-INF/lib</directory>
-                        </fileset>
+            </fileset>
                         <fileset>
                             <directory>${basedir}/src/main/webapp/WEB-INF/classes</directory>
-                        </fileset>
-                    </filesets>
+            </fileset>
+          </filesets>
                 </configuration>
             </plugin>
             <plugin>
@@ -129,18 +148,20 @@
                         </goals>
                         <configuration>
                             <sources>
-                                <source>services/authService/src</source>
-                                <source>services/salesdb/src</source>
-                                <source>services/salesforceLeads/src</source>
+                                <source>services/AdventureWorks2014/src</source>
+                                <source>services/CountryInfoService/src</source>
+                                <source>services/FileService/src</source>
+                                <source>services/MyJavaService/src</source>
+                                <source>services/googleapis/src</source>
+                                <source>services/heartRate/src</source>
+                                <source>services/hrdb/src</source>
                                 <source>services/securityService/src</source>
-                                <source>services/wsheartrate/src</source>
                             </sources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.7</version>
                 <executions>
@@ -153,7 +174,7 @@
                         <configuration>
                             <target>
                                 <ant antfile="${basedir}/build.xml" target="init"/>
-                            </target>
+              </target>
                         </configuration>
                     </execution>
                 </executions>
@@ -170,7 +191,6 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>2.10</version>
                 <executions>
@@ -189,8 +209,8 @@
                                     <version>${wavemaker.studio.version}</version>
                                     <classifier>wmapp</classifier>
                                     <type>zip</type>
-                                </artifactItem>
-                            </artifactItems>
+                </artifactItem>
+              </artifactItems>
                         </configuration>
                     </execution>
                 </executions>
@@ -265,7 +285,6 @@
             <id>central</id>
             <name>Maven Repository Switchboard</name>
             <url>http://repo1.maven.org/maven2</url>
-            <layout>default</layout>
         </repository>
         <repository>
             <releases>
@@ -307,9 +326,11 @@
             <version>2.3.3</version>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.38</version>
+            <groupId>sqljdbc4-4.0</groupId>
+            <artifactId>sqljdbc4-4.0</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.lib.directory}/sqljdbc4-4.0.jar</systemPath>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -338,8 +359,8 @@
         </dependencies>
     </dependencyManagement>
     <properties>
-        <profile.props.file>development.properties</profile.props.file>
         <spring.version>4.3.19.RELEASE</spring.version>
+        <profile.props.file>development.properties</profile.props.file>
         <spring.security.version>5.0.8.RELEASE</spring.security.version>
         <wavemaker.studio.version>9.9.9.5780</wavemaker.studio.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

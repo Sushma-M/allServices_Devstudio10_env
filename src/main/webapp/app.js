@@ -1,3 +1,7 @@
+App.onPageReady = function (activePageName, activePageScope, $activePageEl) {
+    App.onAppVariablesReady();
+};
+
 /* perform any action on the variables within this block(on-page-load) */
 
 App.onAppVariablesReady = function () {
@@ -19,28 +23,4 @@ App.onSessionTimeout = function () {
      */
 
 };
-
-/*
- * This application level callback function will be invoked after the invocation of PAGE level onPageReady function.
- * Use this function to write common logic across the pages in the application.
- * activePageName : name of the page
- * activePageScope: scope of the page
- * $activePageEl  : page jQuery element
- */
-
-App.onPageReady = function (activePageName, activePageScope, $activePageEl) {
-    App.onAppVariablesReady();
-};
-
-/*
- * This application level callback function will be invoked after a Variable receives an error from the target service.
- * Use this function to write common error handling logic across the application.
- * source:      Variable object or Widget Scope
- * errorMsg:    The error message returned by the target service. This message will be displayed through appNotification variable
- *              You can change this though App.Variables.appNotification.setMessage(YOUR_CUSTOM_MESSAGE)
- * xhrObj:      The xhrObject used to make the service call
- *              This object contains useful information like statusCode, url, request/response body.
- */
-
-App.onServiceError = function (source, errorMsg, xhrObj) {};
 

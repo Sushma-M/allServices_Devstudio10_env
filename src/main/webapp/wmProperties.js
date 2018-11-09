@@ -1,10 +1,10 @@
 var _WM_APP_PROPERTIES = {
-  "activeTheme" : "clear-glass",
+  "activeTheme" : "material",
   "dateFormat" : "",
   "defaultLanguage" : "en",
-  "displayName" : "SalesVision",
+  "displayName" : "TestAllServicesforVCS_31May_PRd2",
   "homePage" : "Main",
-  "name" : "SalesVision",
+  "name" : "TestAllServicesforVCS_31May_PRd2",
   "platformType" : "WEB",
   "securityEnabled" : "true",
   "supportedLanguages" : "en",

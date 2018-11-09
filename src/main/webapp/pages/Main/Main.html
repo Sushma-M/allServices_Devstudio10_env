@@ -1,54 +1,208 @@
-<wm-page name="mainpage" pagetitle="Main"> 
-    <wm-header content="header" name="header1"></wm-header> 
-    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
-    <wm-content name="content1"> 
-        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel> 
-        <wm-page-content columnwidth="10" name="page_content1"> 
-            <wm-layoutgrid name="layoutgrid1"> 
-                <wm-gridrow name="gridrow22_2" padding="0em 0em .5em 0em "> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn44_3" padding=".5em"> 
-                        <wm-panel iconclass="wi wi-location-city" autoclose="outsideClick" title="Leads" name="panel1" class="panel-custom-success"> 
-                            <wm-panel-footer name="panel_footer1"> 
-                                <wm-label padding="unset 0.5em" class="text-muted" caption="Leads Generated" name="label7"></wm-label> 
-                            </wm-panel-footer> 
-                            <wm-label name="label40_2" caption="bind:Variables.TotalLeads.dataSet[$i].leadscount" fontsize="2" fontunit="em"></wm-label> 
-                        </wm-panel> 
-                    </wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn45_3" padding=".5em"> 
-                        <wm-panel iconclass="wi wi-library-books" autoclose="outsideClick" title="Quotes" class="panel-custom-info" name="panel2"> 
-                            <wm-panel-footer name="panel_footer2"> 
-                                <wm-label padding="unset 0.5em" class="text-muted" caption="Quotes Created" name="label8"></wm-label> 
-                            </wm-panel-footer> 
-                            <wm-label caption="bind:Variables.TotalSalesAndRevenue.dataSet[$i].totalsales" fontsize="2" fontunit="em" name="label14"></wm-label> 
-                        </wm-panel> 
-                    </wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn46_2" padding=".5em"> 
-                        <wm-panel iconclass="wi wi-monetization-on" autoclose="outsideClick" title="Sales" class="panel-custom-danger" name="panel3"> 
-                            <wm-panel-footer name="panel_footer3"> 
-                                <wm-label padding="unset 0.5em" class="text-muted" caption="Sales Converted" name="label10"></wm-label> 
-                            </wm-panel-footer> 
-                            <wm-label caption="bind:Variables.TotalSalesAndRevenue.dataSet[$i].salesrevenue | toCurrency: '$'" fontsize="2" fontunit="em" name="label16"></wm-label> 
-                        </wm-panel> 
-                    </wm-gridcolumn> 
-                </wm-gridrow> 
-                <wm-gridrow name="gridrow10" padding="0em .5em"> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn21" padding="0em .5em 0em 0em "> 
-                        <wm-chart type="Bar" title="Trending Products" height="450px" iconclass="wi wi-bar-chart" name="chart3" theme="Orient" showxaxis="true" showvalues="false" staggerlabels="false" xaxislabeldistance="30" ynumberformat=",r" class="panel-default" dataset="bind:Variables.SalesVar.dataSet" aggregation="sum" aggregationcolumn="sales" groupby="products.name" orderby="sales:desc" xaxisdatakey="products.name" yaxisdatakey="sales"></wm-chart> 
-                    </wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="8" name="gridcolumn22" padding="0em 0em 0em .5em "> 
-                        <wm-chart type="Area" title="Sales by Month" height="450px" iconclass="fa fa-area-chart" name="chart4_1" class="panel-default" interpolation="cardinal" theme="Retro" dataset="bind:Variables.SalesVar.dataSet" yaxisdatakey="sales" aggregation="sum" xaxisdatakey="entryDate" aggregationcolumn="sales" groupby="entryDate" xdateformat="%b"></wm-chart> 
-                    </wm-gridcolumn> 
-                </wm-gridrow> 
-                <wm-gridrow name="gridrow9" padding="unset 0.5em"> 
-                    <wm-gridcolumn columnwidth="4" name="gridcolumn7"> 
-                        <wm-chart type="Pie" title="Pie Chart" height="350px" iconclass="wi wi-pie-chart" name="chart4" dataset="bind:Variables.SalesByRepsVar.dataSet" xaxisdatakey="name" yaxisdatakey="sales" showlegend="hide" labeltype="percent" ynumberformat="Thousand" theme="Retro" showlabels="outside"></wm-chart> 
-                    </wm-gridcolumn> 
-                    <wm-gridcolumn columnwidth="8" name="gridcolumn13" padding="unset unset unset 0.5em"> 
-                        <wm-chart type="Line" title="Sales Ticker" height="350px" iconclass="wi wi-line-chart" name="chart3_1" dataset="bind:Variables.wsheartratevar.dataSet" xaxisdatakey="time" yaxisdatakey="value" interpolation="cardinal" xdateformat="%X" formattype="date"></wm-chart> 
-                    </wm-gridcolumn> 
-                </wm-gridrow> 
-            </wm-layoutgrid> 
-        </wm-page-content> 
-    </wm-content> 
-    <wm-footer content="footer" name="footer1"></wm-footer> 
+<wm-page name="mainpage" pagetitle="Main">
+    <wm-header content="header" name="header" height="auto"></wm-header>
+    <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
+    <wm-content name="content">
+        <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
+        <wm-page-content columnwidth="8" name="mainContent" padding="unset 15px">
+            <wm-composite name="composite5">
+                <wm-label class="col-md-3 control-label" name="label9"></wm-label>
+                <wm-container class="col-md-9" name="container8_1">
+                    <wm-textarea name="textarea1"></wm-textarea>
+                </wm-container>
+            </wm-composite>
+            <wm-label padding="unset 0.5em" name="label11"></wm-label>
+            <wm-label padding="unset 0.5em" name="label8" caption="bind:Variables.MyjavaserviceVar.dataSet.value"></wm-label>
+            <wm-accordion name="accordion1">
+                <wm-accordionpane name="accordionpane1" title="Web Serv">
+                    <wm-tabs name="tabs1">
+                        <wm-tabpane name="tabpane1" title="Rest Serv">
+                            <wm-composite name="composite1">
+                                <wm-label class="col-md-3 control-label" name="label1" caption="Source"></wm-label>
+                                <wm-container class="col-md-9" name="container1">
+                                    <wm-text name="text1"></wm-text>
+                                </wm-container>
+                            </wm-composite>
+                            <wm-composite name="composite2">
+                                <wm-label class="col-md-3 control-label" name="label2" caption="Distance"></wm-label>
+                                <wm-container class="col-md-9" name="container2">
+                                    <wm-text name="text2"></wm-text>
+                                </wm-container>
+                            </wm-composite>
+                            <wm-button class="btn-default" caption="get data" type="button" margin="unset 0.5em" name="button1" on-click="Variables.GoogleapisInvoke.invoke()"></wm-button>
+                            <wm-label padding="unset 0.5em" name="label3" caption="bind:Variables.GoogleapisInvoke.dataSet.route.leg.distance.text"></wm-label>
+                            <wm-table title="" dataset="bind:Variables.GoogleapisInvoke.dataSet" navigation="Basic" name="grid1">
+                                <wm-table-column binding="status" caption="Status" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.bounds.southwest.lng" caption="Route.bounds.southwest Lng" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.bounds.southwest.lat" caption="Route.bounds.southwest Lat" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.bounds.northeast.lng" caption="Route.bounds.northeast Lng" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.bounds.northeast.lat" caption="Route.bounds.northeast Lat" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.summary" caption="Route Summary" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.leg.distance.text" caption="Route.leg.distance Text" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.leg.distance.value" caption="Route.leg.distance Value" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.leg.duration.text" caption="Route.leg.duration Text" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="route.leg.duration.value" caption="Route.leg.duration Value" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                            </wm-table>
+                        </wm-tabpane>
+                        <wm-tabpane name="tabpane2" title="Soap Serv">
+                            <wm-table title="" dataset="bind:Variables.CountryInfoServiceFullCountryInfoAllCountries.dataSet" navigation="Basic" name="grid2">
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].sisoCode" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0] Siso Code" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].languages.tLanguage[0].sisoCode" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0].languages.tLanguage[0] Siso Code"
+                                    pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].languages.tLanguage[0].sName" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0].languages.tLanguage[0] S Name" pcdisplay="true"
+                                    mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].sCapitalCity" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0] S Capital City" pcdisplay="true" mobiledisplay="true"
+                                    readonly="true"></wm-table-column>
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].sPhoneCode" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0] S Phone Code" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].sContinentCode" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0] S Continent Code" pcdisplay="true" mobiledisplay="true"
+                                    readonly="true"></wm-table-column>
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].sCurrencyISOCode" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0] S Currency Iso Code" pcdisplay="true" mobiledisplay="true"
+                                    readonly="true"></wm-table-column>
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].sName" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0] S Name" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="fullCountryInfoAllCountriesResult.tCountryInfo[0].sCountryFlag" caption="FullCountryInfoAllCountriesResult.tCountryInfo[0] S Country Flag" pcdisplay="true" mobiledisplay="true"
+                                    readonly="true"></wm-table-column>
+                            </wm-table>
+                            <wm-button class="btn-default" caption="get data" type="button" margin="unset 0.5em" name="button2" on-click="Variables.CountryInfoServiceFullCountryInfoAllCountries.invoke()"></wm-button>
+                        </wm-tabpane>
+                        <wm-tabpane name="tabpane4" title="WebSocket">
+                            <wm-chart type="Line" title="heart rate monitor" height="250px" iconclass="wi wi-line-chart" name="chart1" xaxisdatakey="time" yaxisdatakey="value" dataset="bind:Variables.webSocketVariable1.dataSet"></wm-chart>
+                        </wm-tabpane>
+                    </wm-tabs>
+                </wm-accordionpane>
+                <wm-accordionpane name="accordionpane2" title="DB Serv">
+                    <wm-tabs name="tabs2">
+                        <wm-tabpane name="tabpane5" title="Live Var">
+                            <wm-livetable formlayout="dialog" name="livegrid1">
+                                <wm-table gridfirstrowselect="true" editmode="dialog" title="Department List" dataset="bind:Variables.HrdbDepartmentData.dataSet" navigation="Basic" name="grid4">
+                                    <wm-table-column binding="deptId" caption="Dept Id" generator="identity" pcdisplay="true" mobiledisplay="true" type="integer" primary-key="true" readonly="true"></wm-table-column>
+                                    <wm-table-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                                    <wm-table-column binding="budget" caption="Budget" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column>
+                                    <wm-table-column binding="q1" caption="Q1" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column>
+                                    <wm-table-column binding="q2" caption="Q2" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column>
+                                    <wm-table-column binding="q3" caption="Q3" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column>
+                                    <wm-table-column binding="q4" caption="Q4" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column>
+                                    <wm-table-column binding="deptCode" caption="Dept Code" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                                    <wm-table-column binding="location" caption="Location" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                                    <wm-table-column binding="tenantId" caption="Tenant Id" generator="assigned" pcdisplay="true" mobiledisplay="true" type="integer"></wm-table-column>
+                                    <wm-table-action key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action>
+                                    <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow($event)"></wm-table-row-action>
+                                    <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow($event)"></wm-table-row-action>
+                                </wm-table>
+                                <wm-liveform novalidate="false" errormessage="" title="Department Info" formlayout="dialog" iconclass="wi wi-edit" dataset="bind:Variables.HrdbDepartmentData.dataSet" captionalign="left" captionposition="top" name="liveform1">
+                                    <wm-layoutgrid columns="3" name="layoutgrid1">
+                                        <wm-gridrow name="gridrow1">
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn1">
+                                                <wm-form-field name="name" displayname="Name" required="false" show="true" generator="assigned" primary-key="false" key="name" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                                    widget="text"></wm-form-field>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn2">
+                                                <wm-form-field name="budget" displayname="Budget" required="false" show="true" generator="assigned" primary-key="false" key="budget" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true"
+                                                    widget="number"></wm-form-field>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn3">
+                                                <wm-form-field name="q1" displayname="Q1" required="false" show="true" generator="assigned" primary-key="false" key="q1" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow2">
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn4">
+                                                <wm-form-field name="q2" displayname="Q2" required="false" show="true" generator="assigned" primary-key="false" key="q2" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn5">
+                                                <wm-form-field name="q3" displayname="Q3" required="false" show="true" generator="assigned" primary-key="false" key="q3" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn6">
+                                                <wm-form-field name="q4" displayname="Q4" required="false" show="true" generator="assigned" primary-key="false" key="q4" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow3">
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn7">
+                                                <wm-form-field name="deptCode" displayname="Dept Code" required="false" show="true" generator="assigned" primary-key="false" key="deptCode" type="string" is-related="false" maxchars="20" pc-display="true" mobile-display="true"
+                                                    widget="text"></wm-form-field>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn8">
+                                                <wm-form-field name="location" displayname="Location" required="false" show="true" generator="assigned" primary-key="false" key="location" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                                    widget="text"></wm-form-field>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="4" name="gridcolumn9">
+                                                <wm-form-field name="tenantId" displayname="Tenant Id" required="false" show="true" generator="assigned" primary-key="false" key="tenantId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true"
+                                                    widget="number"></wm-form-field>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                    <wm-form-field name="deptId" displayname="Dept Id" required="true" show="false" generator="identity" primary-key="true" key="deptId" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true"
+                                        widget="number"></wm-form-field>
+                                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                                    <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true" action=""></wm-form-action>
+                                </wm-liveform>
+                            </wm-livetable>
+                        </wm-tabpane>
+                        <wm-tabpane name="tabpane6" title="Query Var">
+                            <wm-composite name="composite3">
+                                <wm-label class="col-md-3 control-label" name="label4" caption="DeptID:="></wm-label>
+                                <wm-container class="col-md-9" name="container3">
+                                    <wm-text name="text3" type="number"></wm-text>
+                                </wm-container>
+                            </wm-composite>
+                            <wm-table title="" dataset="bind:Variables.HrdbExecuteEmployeedatabyID.dataSet" navigation="Basic" name="grid5">
+                                <wm-table-column binding="DEPT_ID" caption="Dept Id" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="STATE" caption="State" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="BIRTHDATE" caption="Birthdate" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="ROLE" caption="Role" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="JOB_TITLE" caption="Job Title" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="STREET" caption="Street" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="TENANT_ID" caption="Tenant Id" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="PICURL" caption="Picurl" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="FIRSTNAME" caption="Firstname" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                                <wm-table-column binding="MANAGER_ID" caption="Manager Id" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                            </wm-table>
+                        </wm-tabpane>
+                        <wm-tabpane name="tabpane7" title="Proc Var">
+                            <wm-composite name="composite4">
+                                <wm-label class="col-md-3 control-label" name="label5" caption="deptID"></wm-label>
+                                <wm-container class="col-md-9" name="container4">
+                                    <wm-select name="select1" dataset="1,2,3,4,5"></wm-select>
+                                </wm-container>
+                            </wm-composite>
+                            <wm-table title="" dataset="bind:Variables.AdventureWorks2014ExecuteGetdeptInfo.dataSet" navigation="Basic" name="grid6">
+                                <wm-table-column binding="Name" caption="Name" pcdisplay="true" mobiledisplay="true" readonly="true"></wm-table-column>
+                            </wm-table>
+                        </wm-tabpane>
+                    </wm-tabs>
+                </wm-accordionpane>
+                <wm-accordionpane name="accordionpane3" title="File Upload Serv">
+                    <wm-fileupload name="fileupload1" on-select="Variables.FileServiceuploadFile.invoke()"></wm-fileupload>
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.FileServiceListFiles.dataSet" navigation="Basic" name="livelist2">
+                        <wm-listtemplate layout="inline" name="listtemplate2">
+                            <wm-container class="media-left" name="container8">
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" picturesource="bind:Variables.FileServiceListFiles.dataSet.path" class="media-object"></wm-picture>
+                            </wm-container>
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container9">
+                                <wm-label name="Name" class="p media-heading" caption="bind:Variables.FileServiceListFiles.dataSet.name" fontsize="1.143" fontunit="em"></wm-label>
+                                <wm-label name="JobTitle" caption="bind:Variables.FileServiceListFiles.dataSet.size" class="p text-muted"></wm-label>
+                            </wm-container>
+                            <wm-container class="media-right media-top" name="container10">
+                                <wm-button class="btn-transparent" iconclass="wi wi-share" fontsize="18" fontunit="pt" name="button4"></wm-button>
+                            </wm-container>
+                        </wm-listtemplate>
+                    </wm-list>
+                </wm-accordionpane>
+            </wm-accordion>
+            <wm-panel subheading="subheading" iconclass="wi wi-account-circle" autoclose="outsideClick" title="Title" name="panel1">
+                <wm-composite name="composite7">
+                    <wm-label class="col-md-3 control-label" name="label12"></wm-label>
+                    <wm-container class="col-md-9" name="container9_1">
+                        <wm-radioset height="auto" name="radioset1"></wm-radioset>
+                    </wm-container>
+                    <wm-composite name="composite8"></wm-composite>
+                </wm-composite>
+                <wm-composite name="composite9">
+                    <wm-label class="col-md-3 control-label" name="label13"></wm-label>
+                    <wm-container class="col-md-9" name="container10_1">
+                        <wm-checkboxset height="auto" name="checkboxset1"></wm-checkboxset>
+                    </wm-container>
+                </wm-composite>
+            </wm-panel>
+        </wm-page-content>
+        <wm-right-panel columnwidth="2" name="rightpanel" content="rightnav"></wm-right-panel>
+    </wm-content>
+    <wm-footer name="footer" content="footer"></wm-footer>
 </wm-page>

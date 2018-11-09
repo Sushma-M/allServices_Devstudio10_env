@@ -3,23 +3,11 @@
   "type" : "PARTIAL",
   "params" : [ ]
 }, {
-  "name" : "Leads",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
   "name" : "Login",
   "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "Main",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "Sales",
-  "type" : "PAGE",
-  "params" : [ ]
-}, {
-  "name" : "SalesReps",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -37,6 +25,18 @@
 }, {
   "name" : "rightnav",
   "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "test0922",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "testpage2",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "testpartial1",
+  "type" : "PARTIAL",
   "params" : [ ]
 }, {
   "name" : "topnav",

@@ -1,0 +1,45 @@
+{
+  "GetdeptInfo" : {
+    "name" : "GetdeptInfo",
+    "description" : "d",
+    "version" : "V1",
+    "procedureString" : "Exec HumanResources.getDeparmentInfoOut :deptid,:Name",
+    "parameters" : [ {
+      "name" : "deptid",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "2",
+      "required" : false,
+      "parameterType" : "IN"
+    }, {
+      "name" : "Name",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "testValue" : "",
+      "required" : false,
+      "parameterType" : "OUT"
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : null
+    },
+    "response" : {
+      "typeRef" : "com.testallservicesforvcs.adventureworks2014.models.procedure.GetdeptInfoResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "SINGLE",
+      "properties" : [ {
+        "name" : "Name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="employeedatabyID">
+        <![CDATA[
+        select * from Employee where DEPT_ID =:id
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="employeedatabyID__count">
+        <![CDATA[
+        select count(*) from (select * from Employee where DEPT_ID =:id) wmTempTable
+        ]]>
+    <query-param name="id" type="java.lang.Integer"/>
+    </sql-query>
+</hibernate-mapping>

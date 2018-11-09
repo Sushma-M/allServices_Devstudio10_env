@@ -15,16 +15,29 @@
     } ],
     "operation" : "toast"
   },
-  "goToPage_Leads" : {
-    "_id" : "wm-goToPage_Leads-wm.NavigationVariable-1499075604893",
-    "name" : "goToPage_Leads",
+  "FileServiceListFiles" : {
+    "_id" : "wm-FileServiceListFiles-wm.ServiceVariable-1481871437282",
+    "name" : "FileServiceListFiles",
     "owner" : "App",
-    "category" : "wm.NavigationVariable",
+    "category" : "wm.ServiceVariable",
     "dataBinding" : [ ],
-    "operation" : "gotoPage",
-    "pageName" : "Leads",
+    "type" : "com.testallservicesforvcs.fileservice.FileService.WMFile",
+    "service" : "FileService",
+    "operation" : "listFiles",
+    "operationId" : "FileController_listFiles",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
     "dataSet" : [ ],
-    "pageTransitions" : "none"
+    "isList" : true,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "File"
   },
   "goToPage_Main" : {
     "_id" : "wm-wm.NavigationVariable1389180517517",
@@ -34,30 +47,19 @@
     "operation" : "gotoPage",
     "pageName" : "Main"
   },
-  "goToPage_Sales" : {
-    "_id" : "wm-goToPage_Sales-wm.NavigationVariable-1499075554239",
-    "name" : "goToPage_Sales",
+  "goToPage_testpage2" : {
+    "_id" : "wm-goToPage_testpage2-wm.NavigationVariable-1533210926447",
+    "name" : "goToPage_testpage2",
     "owner" : "App",
     "category" : "wm.NavigationVariable",
     "dataBinding" : [ ],
     "operation" : "gotoPage",
-    "pageName" : "Sales",
-    "dataSet" : [ ],
-    "pageTransitions" : "none"
-  },
-  "goToPage_SalesReps" : {
-    "_id" : "wm-goToPage_SalesReps-wm.NavigationVariable-1499075595825",
-    "name" : "goToPage_SalesReps",
-    "owner" : "App",
-    "category" : "wm.NavigationVariable",
-    "dataBinding" : [ ],
-    "operation" : "gotoPage",
-    "pageName" : "SalesReps",
+    "pageName" : "testpage2",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
   "loggedInUser" : {
-    "_id" : "wm-loggedInUser-wm.Variable-1499148055196",
+    "_id" : "wm-loggedInUser-wm.Variable-1481871579192",
     "name" : "loggedInUser",
     "owner" : "App",
     "category" : "wm.Variable",
@@ -75,7 +77,7 @@
     "saveInPhonegap" : false
   },
   "loginAction" : {
-    "_id" : "wm-loginVariable-wm.LoginVariable-1499148055196",
+    "_id" : "wm-loginVariable-wm.LoginVariable-1481871579192",
     "name" : "loginAction",
     "owner" : "App",
     "category" : "wm.LoginVariable",
@@ -107,7 +109,7 @@
     "useDefaultSuccessHandler" : true
   },
   "logoutAction" : {
-    "_id" : "wm-logoutVariable-wm.LogoutVariable-1499148055196",
+    "_id" : "wm-logoutVariable-wm.LogoutVariable-1481871579192",
     "name" : "logoutAction",
     "owner" : "App",
     "category" : "wm.LogoutVariable",
