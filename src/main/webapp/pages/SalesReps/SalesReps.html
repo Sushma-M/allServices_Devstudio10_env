@@ -1,0 +1,85 @@
+<wm-page pagetitle="Sales Reps" name="page1"> 
+    <wm-header content="header" name="header1"></wm-header> 
+    <wm-top-nav content="topnav" name="top_nav1"></wm-top-nav> 
+    <wm-content name="content1"> 
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel> 
+        <wm-page-content columnwidth="10" name="page_content1"> 
+            <wm-layoutgrid name="layoutgrid1"> 
+                <wm-gridrow name="gridrow1"> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1"> 
+                        <wm-label padding="unset 0.5em" caption="Sales Reps" class="h2" name="label1"></wm-label> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2"></wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow2"> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn3"> 
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" datafield="All Fields" name="RepsList1" dataset="bind:Variables.SalesdbRepsData.dataSet" navigation="Basic" selectfirstitem="true"> 
+                            <wm-listtemplate layout="inline" name="listtemplate1"> 
+                                <wm-container class="media-left" name="container1"> 
+                                    <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" picturesource="bind:Variables.SalesdbRepsData.dataSet.picurl" class="media-object"></wm-picture> 
+                                </wm-container> 
+                                <wm-container class="media-body" name="container2"> 
+                                    <wm-label class="p media-heading" name="Name" caption="bind:Variables.SalesdbRepsData.dataSet.name" fontunit="em" padding="unset unset unset 1.25em"></wm-label> 
+                                    <wm-label padding="unset 0.5em unset 1.2em" name="city" caption="bind:Variables.SalesdbRepsData.dataSet.data[$i].city" class="h5"></wm-label> 
+                                </wm-container> 
+                            </wm-listtemplate> 
+                        </wm-list> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn4"> 
+                        <wm-panel iconclass="" autoclose="outsideClick" title="" name="panel1"> 
+                            <wm-layoutgrid name="layoutgrid3"> 
+                                <wm-gridrow name="gridrow7"> 
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn19_2"> 
+                                        <wm-picture name="picture2" picturesource="bind:Widgets.RepsList1.selecteditem.picurl"></wm-picture> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="3" name="gridcolumn20_1"> 
+                                        <wm-layoutgrid name="layoutgrid4"> 
+                                            <wm-gridrow name="gridrow14"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn25"> 
+                                                    <wm-label padding="unset 0.5em" name="label8_2" caption="bind:Widgets.RepsList1.selecteditem.name" class="h2"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow12"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn21_1"> 
+                                                    <wm-label padding="unset 0.5em" name="label8" caption="bind:Widgets.RepsList1.selecteditem.street"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow13"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn23"> 
+                                                    <wm-label padding="unset 0.5em" name="label7" caption="bind:Widgets.RepsList1.selecteditem.city + ', ' +Widgets.RepsList1.selecteditem.state +' - ' + Widgets.RepsList1.selecteditem.zip"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                            <wm-gridrow name="gridrow15"> 
+                                                <wm-gridcolumn columnwidth="12" name="gridcolumn27"> 
+                                                    <wm-label padding="unset 0.5em" name="label8_1" caption="Sales" margin="unset 1.5em unset unset"></wm-label> 
+                                                    <wm-label padding="unset 0.5em" name="label10" caption="bind:Variables.SalesByRepIdVar.dataSet[$i].sales | toCurrency: '$'" fontweight="bold"></wm-label> 
+                                                </wm-gridcolumn> 
+                                            </wm-gridrow> 
+                                        </wm-layoutgrid> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn29"> 
+                                        <wm-prefab prefabname="googlemaps" name="googlemaps2" address="city" height="200px" locations="bind:Widgets.RepsList1.selecteditem" markertype="Address" zoom="11"></wm-prefab> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                                <wm-gridrow name="gridrow8"> 
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn14"> 
+                                        <wm-table name="executeAllSalesByRepTable1" title="bind:'Sales by '+Widgets.RepsList1.selecteditem.name" dataset="bind:Variables.AllSalesByRepVar.dataSet" navigation="Basic"> 
+                                            <wm-table-column binding="customer" caption="Customer" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column> 
+                                            <wm-table-column binding="product" caption="Product" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column> 
+                                            <wm-table-column binding="sale" caption="Sale" edit-widget-type="number" type="long" formatpattern="toCurrency" currencypattern="USD" show="true" readonly="false"></wm-table-column> 
+                                            <wm-table-column binding="saledate" caption="Saledate" edit-widget-type="date" type="date" datepattern="yyyy, MMM dd" formatpattern="toDate" show="true" readonly="false"></wm-table-column> 
+                                        </wm-table> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow3"> 
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn5"></wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer" name="footer1"></wm-footer> 
+</wm-page>
